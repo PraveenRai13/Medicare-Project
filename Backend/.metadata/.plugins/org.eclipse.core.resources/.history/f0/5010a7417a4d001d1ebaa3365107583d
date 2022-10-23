@@ -1,0 +1,33 @@
+package com.simplilearn.medicare.controllers;
+
+import javax.websocket.server.PathParam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.simplilearn.medicare.entities.Medicine;
+import com.simplilearn.medicare.services.MedicineService;
+
+@RestController
+@RequestMapping("/medicine")
+public class MedicineController {
+	@Autowired
+	private MedicineService medicineService;
+@PostMapping("/")
+public ResponseEntity<?> addMedicine(@RequestBody Medicine medicine){
+	Medicine medi=this.medicineService.addMedicine(medicine);
+	return ResponseEntity.ok(medi);
+}
+@GetMapping("/{medicineId}")
+public Medicine getMedicine(@PathVariable("medicineId") Integer medicineId) {
+	return this.medicineService.getMedicine(medicineId);
+}
+
+
+}

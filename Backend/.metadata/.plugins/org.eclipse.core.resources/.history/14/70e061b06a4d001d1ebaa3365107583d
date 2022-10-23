@@ -1,0 +1,7 @@
+package com.simplilearn.medicare.services;
+
+import com.simplilearn.medicare.entities.Medicines;
+
+public interface MedicinesService {
+	public Medicines addMedicines(Medicines medicines);
+}

@@ -1,0 +1,6 @@
+package com.simplilearn.medicare.services;
+
+public interface MedicinesService {
+	public 
+
+}

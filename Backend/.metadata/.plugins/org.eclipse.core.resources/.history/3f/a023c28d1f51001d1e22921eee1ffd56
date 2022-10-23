@@ -1,0 +1,11 @@
+package com.simplilearn.medicare.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.simplilearn.medicare.entities.Cart;
+import com.simplilearn.medicare.entities.User;
+
+public interface CartRepository extends JpaRepository<Cart, Integer>{
+	public Cart findByUser(User user);
+
+}

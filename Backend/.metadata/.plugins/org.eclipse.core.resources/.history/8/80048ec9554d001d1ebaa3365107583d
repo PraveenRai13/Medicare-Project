@@ -1,0 +1,17 @@
+package com.simplilearn.medicare.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="medicines")
+public class medicines {
+	private int productId;
+	private String name;
+	private double price;
+	private String sellerName;
+	private String description;
+	private int offer;
+	private String image;
+
+}

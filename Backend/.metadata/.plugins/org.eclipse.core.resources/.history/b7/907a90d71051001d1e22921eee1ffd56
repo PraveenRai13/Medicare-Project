@@ -1,0 +1,13 @@
+package com.simplilearn.medicare.entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Cart {
+private int id;
+private String medicineName;
+private int quantity;
+private int price;
+private int totalprice;
+private String image;
+}

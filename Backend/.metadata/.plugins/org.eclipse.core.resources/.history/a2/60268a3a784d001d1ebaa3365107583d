@@ -1,0 +1,5 @@
+package com.simplilearn.medicare.controllers;
+
+public class MedicineController {
+
+}

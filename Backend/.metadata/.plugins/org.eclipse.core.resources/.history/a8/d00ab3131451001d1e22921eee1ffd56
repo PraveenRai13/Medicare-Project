@@ -1,0 +1,18 @@
+package com.simplilearn.medicare.services;
+
+import java.util.Set;
+
+import com.simplilearn.medicare.entities.Cart;
+
+public interface CartService {
+	public Cart getCartItemById(int cartItemId);
+
+	public Set<Cart> getAllCartItems();
+
+	public Cart addCartItem(Cart cartItem);
+
+	public Cart updateCartItem(int cartItemId, Cart cartItem);
+
+	public void deleteCartItem(int cartItemId);
+
+}

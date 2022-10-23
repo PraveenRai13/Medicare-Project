@@ -1,0 +1,41 @@
+package com.simplilearn.medicare.services.impl;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.simplilearn.medicare.entities.Medicine;
+import com.simplilearn.medicare.repositories.MedicineRepository;
+import com.simplilearn.medicare.services.MedicineService;
+
+public class MedicineServiceImpl implements MedicineService {
+	@Autowired
+	private MedicineRepository medicineRepository;
+	@Override
+	public Medicine addMedicine(Medicine medicine) {
+		return this.medicineRepository.save(medicine);
+	}
+
+	@Override
+	public Medicine updateMedicine(Medicine medicine) {
+		return null;
+	}
+
+	@Override
+	public Set<Medicine> getMedicines(Medicine medicine) {
+		return new LinkedHashSet<>(this.medicineRepository.findAll());
+	}
+
+	@Override
+	public Medicine getMedicine(Integer medicineId) {
+		return this.medicineRepository.findById(medicineId).get();
+	}
+
+	@Override
+	public void deleteMedicine(Integer medicineId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

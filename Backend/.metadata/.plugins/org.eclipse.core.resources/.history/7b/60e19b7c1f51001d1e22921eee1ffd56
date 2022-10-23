@@ -1,0 +1,21 @@
+package com.simplilearn.medicare.dto;
+
+import com.simplilearn.medicare.entities.User;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CartDto {
+	private int id;
+	private String medicineName;
+	private int quantity;
+	private int price;
+	private int totalprice;
+	private String image;
+	private String sellerName;
+	private String description;
+}

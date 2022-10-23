@@ -1,0 +1,12 @@
+package com.simplilearn.medicare.dto;
+
+public class CartDto {
+	private int id;
+	private String medicineName;
+	private int quantity;
+	private int price;
+	private int totalprice;
+	private String image;
+	private String sellerName;
+	private String description;
+}

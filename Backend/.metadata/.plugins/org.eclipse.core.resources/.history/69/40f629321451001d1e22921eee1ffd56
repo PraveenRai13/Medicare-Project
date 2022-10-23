@@ -1,0 +1,44 @@
+package com.simplilearn.medicare.services.impl;
+
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.simplilearn.medicare.entities.Cart;
+import com.simplilearn.medicare.exceptions.CartItemNotFoundException;
+import com.simplilearn.medicare.repositories.CartRepository;
+import com.simplilearn.medicare.services.CartService;
+
+public class CartServiceImpl implements CartService{
+	@Autowired
+	public CartRepository cartRepository;
+	
+
+	@Override
+	public Cart getCartItemById(int cartItemId) throws CartItemNotFoundException {
+		return cartRepository.findById(cartItemId)
+				.orElseThrow(() -> new CartItemNotFoundException("Cart item not found"));
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<Cart> getAllCartItems() {
+		return (Set<Cart>) cartRepository.findAll();
+	}
+
+	@Override
+	public Cart addCartItem(Cart cartItem) {
+		return null;
+	}
+
+	@Override
+	public Cart updateCartItem(int cartItemId, Cart cartItem) {
+		return null;
+	}
+
+	@Override
+	public void deleteCartItem(int cartItemId) {
+		
+	}
+
+}

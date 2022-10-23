@@ -1,0 +1,36 @@
+package com.simplilearn.medicare.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+@Entity
+@Table(name="cart")
+public class Cart {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+private int id;
+	@JsonIgnore
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+private String medicineName;
+private int quantity;
+private int price;
+private int totalprice;
+private String image;
+private String sellerName;
+private String description;
+public Cart() {
+	// TODO Auto-generated constructor stub
+}
+}

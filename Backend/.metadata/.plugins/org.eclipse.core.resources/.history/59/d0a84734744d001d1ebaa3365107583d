@@ -1,0 +1,9 @@
+package com.simplilearn.medicare.exceptions;
+
+public class MedicineNotFoundException {
+	public MedicineNotFoundException(String message) {
+		super(message);
+	}
+
+
+}

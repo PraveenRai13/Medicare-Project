@@ -1,0 +1,53 @@
+package com.simplilearn.medicare.services.impl;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.simplilearn.medicare.entities.Cart;
+import com.simplilearn.medicare.exceptions.CartItemNotFoundException;
+import com.simplilearn.medicare.repositories.CartRepository;
+import com.simplilearn.medicare.services.CartService;
+
+public class CartServiceImpl implements CartService{
+	@Autowired
+	public CartRepository cartRepository;
+	
+
+	@Override
+	public Cart getCartItemById(int cartItemId) throws CartItemNotFoundException {
+		return cartRepository.findById(cartItemId)
+				.orElseThrow(() -> new CartItemNotFoundException("Cart item not found"));
+	}
+
+	@Override
+	public List<Cart> getAllCartItems() {
+		return cartRepository.findAll();
+	}
+
+	@Override
+	public Cart addCartItem(Cart cartItem) {
+		return cartRepository.save(cartItem);
+	}
+
+	@Override
+	public Cart updateCartItem(int cartItemId, Cart cartItem) throws CartItemNotFoundException {
+		Cart existingCartItem = cartRepository.findById(cartItemId)
+				.orElseThrow(() -> new CartItemNotFoundException("Cart item not found"));
+		existingCartItem.setMedicineName(cartItem.getMedicineName());
+		existingCartItem.setPrice(cartItem.getPrice());
+		existingCartItem.setQuantity(cartItem.getQuantity());
+		existingCartItem.setSellerName(cartItem.getSellerName());
+		existingCartItem.setDescription(cartItem.getDescription());
+		existingCartItem.setImage(cartItem.getImage());
+		existingCartItem.setTotalprice(cartItem.getTotalprice());
+		return cartRepository.save(existingCartItem);
+	}
+
+	@Override
+	public void deleteCartItem(int cartItemId) {
+		cartRepository.deleteById(cartItemId);
+	}
+
+}

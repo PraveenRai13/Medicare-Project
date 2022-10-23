@@ -1,0 +1,40 @@
+package com.simplilearn.medicare.services.impl;
+
+import java.util.Set;
+
+import com.simplilearn.medicare.entities.Medicine;
+import com.simplilearn.medicare.services.MedicineService;
+
+public class MedicineServiceImpl implements MedicineService {
+
+	@Override
+	public Medicine addMedicine(Medicine medicines) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Medicine updateMedicine(Medicine medicines) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Medicine> getMedicines(Medicine medicines) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Medicine getMedicine(Integer medicinesId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteMedicine(Integer medicineId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

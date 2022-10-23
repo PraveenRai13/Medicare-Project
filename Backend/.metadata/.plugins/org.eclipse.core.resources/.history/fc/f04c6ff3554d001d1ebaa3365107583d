@@ -1,0 +1,72 @@
+package com.simplilearn.medicare.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="medicines")
+public class medicines {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int productId;
+	private String name;
+	private double price;
+	private String sellerName;
+	private String description;
+	private int offer;
+	private String image;
+	public medicines() {
+		// TODO Auto-generated constructor stub
+	}
+	public medicines(int productId, String name, double price, String sellerName, String description, int offer,
+			String image) {
+		super();
+		this.productId = productId;
+		this.name = name;
+		this.price = price;
+		this.sellerName = sellerName;
+		this.description = description;
+		this.offer = offer;
+		this.image = image;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getSellerName() {
+		return sellerName;
+	}
+	public void setSellerName(String sellerName) {
+		this.sellerName = sellerName;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getOffer() {
+		return offer;
+	}
+	public void setOffer(int offer) {
+		this.offer = offer;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+}

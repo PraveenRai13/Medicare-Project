@@ -1,0 +1,39 @@
+package com.simplilearn.medicare.controllers;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.simplilearn.medicare.dto.CartDto;
+import com.simplilearn.medicare.entities.Cart;
+import com.simplilearn.medicare.services.CartService;
+
+@RestController
+@RequestMapping(path = { "/cart" })
+public class CartController {
+	@Autowired
+	public ModelMapper modelMapper;
+	@Autowired
+	public CartService cartService;
+	@GetMapping
+	public List<CartDto> getAllgetAllCartItems() {
+		return cartService.getAllCartItems().stream().map(cartItem -> modelMapper.map(cartItem, CartDto.class))
+				.collect(Collectors.toList());
+	}
+	@PostMapping
+	public ResponseEntity<CartDto> addCartItem(@RequestBody CartDto cartDto){
+		Cart cartRequest = modelMapper.map(cartDto, Cart.class);
+		Cart cart = cartService.addCartItem(cartRequest);
+		CartDto cartResponse =modelMapper.map(cart, CartDto.class);
+		return new ResponseEntity<CartDto>(cartResponse, HttpStatus.CREATED);
+	}
+}

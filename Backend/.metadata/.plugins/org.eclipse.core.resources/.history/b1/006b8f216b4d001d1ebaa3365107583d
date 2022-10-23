@@ -1,0 +1,13 @@
+package com.simplilearn.medicare.services;
+
+import java.util.Set;
+
+import com.simplilearn.medicare.entities.Medicines;
+
+public interface MedicinesService {
+	public Medicines addMedicines(Medicines medicines);
+	public Medicines updateMedicines(Medicines medicines);
+	public Set<Medicines> getMedicines(Medicines medicines);
+	public Medicines getMedicines(Integer medicinesId);
+	public void deleteMedicine(Integer medicineId);
+}
